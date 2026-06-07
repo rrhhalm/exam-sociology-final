@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاختبار النهائي – مدخل إلى علم الاجتماع | جامعة نزوي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', 'Traditional Arabic', 'Amiri', Arial, sans-serif;
+            background: #eef2f7;
+            color: #1a2a3a;
+            line-height: 1.7;
+            padding: 25px 15px;
+        }
+
+        /* الحاوية الرئيسية */
+        .exam-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* رأس الاختبار */
+        .exam-header {
+            background: linear-gradient(135deg, #0b4f5c 0%, #1a6b7a 100%);
+            color: white;
+            padding: 35px 30px;
+            text-align: center;
+        }
+
+        .exam-header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .exam-header h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .univ-info {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 40px;
+            margin-top: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* محتوى الاختبار */
+        .exam-content {
+            padding: 30px 35px;
+        }
+
+        /* القسم */
+        .section {
+            margin-bottom: 45px;
+            border-radius: 20px;
+            border: 1px solid #d4e2e8;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .section-title {
+            background: #eef2f7;
+            padding: 14px 25px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #0b4f5c;
+            border-right: 6px solid #c0392b;
+        }
+
+        .question {
+            border-bottom: 1px solid #ecf0f1;
+            padding: 18px 25px;
+            background: #fefefc;
+        }
+
+        .question-text {
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #1e4663;
+        }
+
+        .options {
+            padding-right: 20px;
+            margin: 8px 0;
+        }
+
+        .options label {
+            display: block;
+            margin: 6px 0;
+            cursor: pointer;
+        }
+
+        .truefalse-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .truefalse-row span {
+            margin-left: 15px;
+        }
+
+        .answer-area {
+            margin-top: 12px;
+            padding: 10px;
+            background: #f0f7f0;
+            border-radius: 14px;
+            border-right: 4px solid #2c6e2f;
+            font-size: 0.85rem;
+            color: #2c5a2c;
+        }
+
+        .essay-area {
+            margin-top: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: vertical;
+            background: #fdfdf5;
+        }
+
+        .btn-submit {
+            background: #1a6b7a;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 20px auto;
+            display: block;
+            width: 250px;
+            transition: 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #0b4f5c;
+            transform: scale(1.02);
+        }
+
+        .result-box {
+            background: #eaf7ea;
+            border: 2px solid #2e7d32;
+            border-radius: 24px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1b5e20;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8fafc;
+            font-size: 0.7rem;
+            color: #5f7f8c;
+            border-top: 1px solid #daecf2;
+        }
+
+        @media (max-width: 680px) {
+            .exam-content {
+                padding: 18px;
+            }
+            .question {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="exam-container">
+    <div class="exam-header">
+        <h1>📘 الاختبار النهائي</h1>
+        <h3>مدخل إلى علم الاجتماع – الفصل الدراسي: ______</h3>
+        <div class="univ-info">جامعة نزوي – كلية العلوم والآداب | قسم التربية والدراسات الإنسانية<br>الدكتور: ناصر بن محمد بن حمد العوفي</div>
+        <div style="margin-top: 12px; font-size: 0.75rem;">⏱ الزمن: ساعتان | الدرجة الكلية: 40 درجة</div>
+    </div>
+
+    <div class="exam-content">
+        <!-- تعليمات -->
+        <div style="background: #fcf8e8; padding: 12px 20px; border-radius: 20px; margin-bottom: 30px; border-right: 6px solid #e67e22;">
+            <strong>📌 تعليمات:</strong> أجب عن جميع الأسئلة. في أسئلة الاختيار من متعدد: اختر الإجابة الصحيحة. في أسئلة الصواب والخطأ: ضع علامة (✓) صح أو (×) خطأ. في الأسئلة المقالية: اكتب إجابتك في المربع المخصص.
+        </div>
+
+        <form id="examForm">
+            <!-- ================= القسم الأول: اختيار من متعدد ================= -->
+            <div class="section">
+                <div class="section-title">🎯 القسم الأول: أسئلة الاختيار من متعدد (10 درجات – 10 أسئلة × 1)</div>
+                <!-- س1 -->
+                <div class="question">
+                    <div class="question-text">1- ماذا يقصد بـ "العصبية" عند ابن خلدون؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> أ) التعصب للرأي الواحد دون نقاش</label>
+                        <label><input type="radio" name="q1" value="B"> ب) روح التضامن والتماسك بين أفراد الجماعة</label>
+                        <label><input type="radio" name="q1" value="C"> ج) النزعة الفردية والأنانية</label>
+                        <label><input type="radio" name="q1" value="D"> د) الصراع الطبقي بين أغنياء وفقراء المجتمع</label>
+                    </div>
+                    <div class="answer-area" id="ans1"></div>
+                </div>
+                <!-- س2 -->
+                <div class="question">
+                    <div class="question-text">2- أي من أنواع الانتحار التالية يحدث عندما يكون الاندماج الاجتماعي ضعيفاً جداً (شعور الفرد بالوحدة والعزلة)؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> أ) الانتحار الإيثاري</label>
+                        <label><input type="radio" name="q2" value="B"> ب) الانتحار الفوضوي</label>
+                        <label><input type="radio" name="q2" value="C"> ج) الانتحار الأناني</label>
+                        <label><input type="radio" name="q2" value="D"> د) الانتحار القسري</label>
+                    </div>
+                </div>
+                <!-- س3 -->
+                <div class="question">
+                    <div class="question-text">3- أي من الخيارات التالية يُعد من أشكال الأسرة الممتدة (أفقياً)؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> أ) الزوج والزوجة وأبناؤهما فقط</label>
+                        <label><input type="radio" name="q3" value="B"> ب) الجد، الأب، والأبناء (ثلاثة أجيال)</label>
+                        <label><input type="radio" name="q3" value="C"> ج) الآباء، الأعمام، والأخوال مع عائلاتهم</label>
+                        <label><input type="radio" name="q3" value="D"> د) الزوج وزوجته فقط بدون أبناء</label>
+                    </div>
+                </div>
+                <!-- س4 -->
+                <div class="question">
+                    <div class="question-text">4- "الدور الشرعي اللامشروط" في نظرية دور المريض ينطبق على أي من الحالات التالية؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> أ) شخص مصاب بنزلة برد خفيفة</label>
+                        <label><input type="radio" name="q4" value="B"> ب) شخص مصاب بالزهايمر أو السكري</label>
+                        <label><input type="radio" name="q4" value="C"> ج) شخص تغيب عن العمل بدون عذر</label>
+                        <label><input type="radio" name="q4" value="D"> د) شخص مصاب بمرض نفسي بسيط</label>
+                    </div>
+                </div>
+                <!-- س5 -->
+                <div class="question">
+                    <div class="question-text">5- أي من الآثار التالية يُعد من آثار الفقر من منظور اجتماعي؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> أ) زيادة فرص التعليم الجيد للأطفال</label>
+                        <label><input type="radio" name="q5" value="B"> ب) انخفاض نسبة الجريمة والعنف</label>
+                        <label><input type="radio" name="q5" value="C"> ج) انتشار المشكلات الأسرية كالعنف والطلاق</label>
+                        <label><input type="radio" name="q5" value="D"> د) تحسن الرعاية الصحية والوقائية</label>
+                    </div>
+                </div>
+                <!-- س6 -->
+                <div class="question">
+                    <div class="question-text">6- أي من أنواع الإقصاء الاجتماعي التالية يعني حرمان فئة عمرية معينة (مثل الشباب) من تقلد المناصب السياسية؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> أ) الإقصاء المرتبط بالصحة العامة</label>
+                        <label><input type="radio" name="q6" value="B"> ب) الإقصاء الديني</label>
+                        <label><input type="radio" name="q6" value="C"> ج) الإقصاء الديموغرافي</label>
+                        <label><input type="radio" name="q6" value="D"> د) الإقصاء المرتبط بالسياسة</label>
+                    </div>
+                </div>
+                <!-- س7 -->
+                <div class="question">
+                    <div class="question-text">7- أي من الخيارات التالية يمثل مكوناً أساسياً من مكونات اقتصاد المعرفة؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> أ) الاعتماد على الموارد الطبيعية فقط</label>
+                        <label><input type="radio" name="q7" value="B"> ب) تطوير مهارات التفكير والابتكار من خلال التعليم</label>
+                        <label><input type="radio" name="q7" value="C"> ج) تشجيع الصناعات التقليدية اليدوية فقط</label>
+                        <label><input type="radio" name="q7" value="D"> د) الاعتماد على العمالة الوافدة الرخيصة</label>
+                    </div>
+                </div>
+                <!-- س8 -->
+                <div class="question">
+                    <div class="question-text">8- أي من الخيارات التالية يُعد مثالاً تطبيقياً على الاقتصاد البنفسجي في سلطنة عمان؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> أ) إنشاء مصفاة نفط جديدة</label>
+                        <label><input type="radio" name="q8" value="B"> ب) بناء مطار دولي حديث</label>
+                        <label><input type="radio" name="q8" value="C"> ج) تحويل منزل قديم إلى متحف تراثي أو نزل سياحي (كمتحف قصري أو بيت الغشام)</label>
+                        <label><input type="radio" name="q8" value="D"> د) استيراد سيارات فاخرة من الخارج</label>
+                    </div>
+                </div>
+                <!-- س9 -->
+                <div class="question">
+                    <div class="question-text">9- أي من الخيارات التالية يُعبر بشكل أدق عن الفرق بين الانتماء والولاء؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> أ) الانتماء بالفطرة، والولاء مكتسب.</label>
+                        <label><input type="radio" name="q9" value="B"> ب) الانتماء شعور عاطفي، والولاء سلوك وفعل عملي.</label>
+                        <label><input type="radio" name="q9" value="C"> ج) الانتماء للمؤسسات فقط، والولاء للوطن فقط.</label>
+                        <label><input type="radio" name="q9" value="D"> د) لا فرق بينهما، فهما مترادفان تماماً.</label>
+                    </div>
+                </div>
+                <!-- س10 -->
+                <div class="question">
+                    <div class="question-text">10- أي من العبارات التالية صحيحة فيما يتعلق بالعلاقة بين الصحة والمكانة الاجتماعية (وفقاً لبعض الخبراء المذكورين في الملف)؟</div>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> أ) المكانة الاجتماعية هي التي تحدد الصحة فقط.</label>
+                        <label><input type="radio" name="q10" value="B"> ب) لا علاقة بين الصحة والمكانة الاجتماعية.</label>
+                        <label><input type="radio" name="q10" value="C"> ج) الصحة الجيدة هي وسيلة للارتقاء الاجتماعي والنجاح في التعليم والعمل.</label>
+                        <label><input type="radio" name="q10" value="D"> د) المرضى هم الأكثر نجاحاً ووصولاً للمراتب العليا.</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= القسم الثاني: صح وخطأ ================= -->
+            <div class="section">
+                <div class="section-title">✅❌ القسم الثاني: أسئلة الصواب والخطأ (10 درجات – 10 أسئلة × 1)</div>
+                <!-- جدول الصواب والخطأ بتصميم سهل -->
+                <div style="padding: 15px;">
+                    <table style="width:100%; border-collapse:collapse; background:#fff;">
+                        <thead><tr style="background:#e2f0f2;"><th>#</th><th>العبارة</th><th>صح (✓)</th><th>خطأ (×)</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>للمرض بعدان أساسيان: شخصي (يخص المريض) وعام (اجتماعي).</td><td><input type="radio" name="tf1" value="true"></td><td><input type="radio" name="tf1" value="false"></td></tr>
+                            <tr><td>2</td><td>فقر الدخل يعني انعدام القدرة على إشباع الحاجات الغذائية الضرورية فقط.</td><td><input type="radio" name="tf2" value="true"></td><td><input type="radio" name="tf2" value="false"></td></tr>
+                            <tr><td>3</td><td>العمر المتوقع للنساء أطول مما هو للرجال في جميع بلدان العالم على الإطلاق.</td><td><input type="radio" name="tf3" value="true"></td><td><input type="radio" name="tf3" value="false"></td></tr>
+                            <tr><td>4</td><td>التفسيرات الثقافية والسلوكية للصحة تتصل بأسلوب حياة الفرد (كالتدخين والتغذية غير المتوازنة).</td><td><input type="radio" name="tf4" value="true"></td><td><input type="radio" name="tf4" value="false"></td></tr>
+                            <tr><td>5</td><td>نسبة تكرار المرض (المراضة) هي أقل في أوساط النساء مما هي بين الرجال.</td><td><input type="radio" name="tf5" value="true"></td><td><input type="radio" name="tf5" value="false"></td></tr>
+                            <tr><td>6</td><td>الأسرة النووية تتكون من الزوج والزوجة والأبناء فقط.</td><td><input type="radio" name="tf6" value="true"></td><td><input type="radio" name="tf6" value="false"></td></tr>
+                            <tr><td>7</td><td>"نظرية التماثل الثقافي" تفسر الطلاق على أساس أن الزوجين غير متشابهين ثقافياً وتربوياً.</td><td><input type="radio" name="tf7" value="true"></td><td><input type="radio" name="tf7" value="false"></td></tr>
+                            <tr><td>8</td><td>الإقصاء الاجتماعي يعني فقط الحرمان الاقتصادي ولا يشمل الجوانب السياسية أو الصحية.</td><td><input type="radio" name="tf8" value="true"></td><td><input type="radio" name="tf8" value="false"></td></tr>
+                            <tr><td>9</td><td>من أسباب الفقر الاجتماعية: انعدام المساواة في توزيع الخدمات، والنمو السكاني السريع، والهجرة من الريف إلى المدينة.</td><td><input type="radio" name="tf9" value="true"></td><td><input type="radio" name="tf9" value="false"></td></tr>
+                            <tr><td>10</td><td>وسائل التواصل الاجتماعي تساهم فقط في التأثيرات الإيجابية على الأبناء ولا توجد لها تأثيرات سلبية.</td><td><input type="radio" name="tf10" value="true"></td><td><input type="radio" name="tf10" value="false"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ================= القسم الثالث: سؤال مقالي (3 فروع) ================= -->
+            <div class="section">
+                <div class="section-title">✍️ القسم الثالث: سؤال مقالي تحليلي (10 درجات – 3 أسئلة فرعية)</div>
+                <div class="question">
+                    <div class="question-text">أولاً: (3 درجات) ما هي أهم مشكلات كبار السن في سلطنة عمان؟ اذكر أربع مشكلات رئيسية (واحدة من كل مجال).</div>
+                    <textarea name="essay_q1" rows="4" placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+                <div class="question">
+                    <div class="question-text">ثانياً: (3 درجات) ما دور الأسرة في رعاية كبار السن في سلطنة عمان؟ اذكر أربعة أدوار أساسية مع أمثلة تطبيقية لكل دور.</div>
+                    <textarea name="essay_q2" rows="4" placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+                <div class="question">
+                    <div class="question-text">ثالثاً: (4 درجات) بالتطبيق على نظرية الصراع الاجتماعي (كارل ماركس)، حلل مسببات الطلاق في المجتمع العماني، ثم اقترح حلولاً عملية للتقليل من هذه المشكلة.</div>
+                    <textarea name="essay_q3" rows="6" placeholder="اكتب تحليلك وحلولك المقترحة..."></textarea>
+                </div>
+            </div>
+
+            <!-- ================= القسم الرابع: سؤال مقالي تطبيقي ================= -->
+            <div class="section">
+                <div class="section-title">🌿 القسم الرابع: سؤال مقالي تطبيقي (10 درجات – سؤالين فرعيين)</div>
+                <div class="question">
+                    <div class="question-text">أولاً: (5 درجات) باعتبارك عالِم اجتماع، قدم تحليلاً اجتماعياً لظاهرة تدخين الطلبة (السيجارة، السيجارة الإلكترونية، الشيشة) في سلطنة عمان، موضحاً الأسباب الاجتماعية التي تدفعهم لذلك (اذكر أربعة أسباب).</div>
+                    <textarea name="essay_q4" rows="5" placeholder="تحليل الأسباب الاجتماعية للتدخين..."></textarea>
+                </div>
+                <div class="question">
+                    <div class="question-text">ثانياً: (5 درجات) ما هي أهم الآثار المترتبة على انتشار ظاهرة التدخين بين الطلبة على أنفسهم وأسرهم ومجتمعهم العماني؟ اذكر خمسة آثار رئيسية.</div>
+                    <textarea name="essay_q5" rows="5" placeholder="اذكر الآثار الصحية والاجتماعية والاقتصادية..."></textarea>
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit" id="submitExam">📌 تصحيح الاختبار وعرض النتيجة</button>
+        </form>
+
+        <div id="resultArea" class="result-box" style="display: none;"></div>
+    </div>
+    <footer>
+        اختبار نهائي – مدخل إلى علم الاجتماع – الدكتور ناصر العوفي – جامعة نزوي ©
+    </footer>
+</div>
+
+<script>
+    // الإجابات الصحيحة للاختيار من متعدد
+    const mcqAnswers = {
+        q1: 'B', q2: 'C', q3: 'C', q4: 'B', q5: 'C',
+        q6: 'C', q7: 'B', q8: 'C', q9: 'B', q10: 'C'
+    };
+
+    // الإجابات الصحيحة للصواب والخطأ (true = صح، false = خطأ)
+    const tfCorrect = {
+        tf1: true,   // صح
+        tf2: false,  // خطأ – الفقر البشري لا يقتصر على الغذائي
+        tf3: true,   // صح
+        tf4: true,
+        tf5: false,  // خطأ – نسبة التكرار أعلى عند النساء
+        tf6: true,
+        tf7: true,
+        tf8: false,  // خطأ – الإقصاء أوسع
+        tf9: true,
+        tf10: false  // خطأ – تأثيرات سلبية كثيرة
+    };
+
+    document.getElementById('submitExam').addEventListener('click', function() {
+        let totalScore = 0;
+        let mcqScore = 0;
+        let tfScore = 0;
+
+        // تصحيح الاختيار من متعدد
+        for (let i = 1; i <= 10; i++) {
+            const name = 'q' + i;
+            const selected = document.querySelector(`input[name="${name}"]:checked`);
+            if (selected && selected.value === mcqAnswers[name]) {
+                mcqScore++;
+            }
+        }
+        totalScore += mcqScore;
+
+        // تصحيح الصواب والخطأ
+        for (let i = 1; i <= 10; i++) {
+            const name = 'tf' + i;
+            const selected = document.querySelector(`input[name="${name}"]:checked`);
+            if (selected) {
+                const isTrue = selected.value === 'true';
+                if (isTrue === tfCorrect[name]) {
+                    tfScore++;
+                }
+            }
+        }
+        totalScore += tfScore;
+
+        // عرض درجة الجزء الموضوعي + تنبيه بأن المقالي يقدّر من قبل المصحح
+        const resultDiv = document.getElementById('resultArea');
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `
+            <div style="font-size:1.2rem; font-weight:bold;">📊 نتيجة الاختبار (الجزء الموضوعي)</div>
+            <div class="score">الدرجة في القسمين الأول والثاني: ${mcqScore + tfScore} / 20</div>
+            <div style="margin-top: 15px; background:#fff3e0; padding: 12px; border-radius: 20px; text-align:right;">
+                <strong>🗂 ملاحظة هامة:</strong> الأسئلة المقالية (القسم الثالث والرابع) مجموعها 20 درجة.<br>
+                يتم تقييمها من قبل المصحح بناءً على الدقة، التحليل، الاستشهاد بالأمثلة العمانية، والالتزام بنظريات علم الاجتماع.<br>
+                <strong>الدرجة المحتملة للمقالي:</strong> 20 درجة – اجتهد في الإجابات الواردة في مربعات النص.
+            </div>
+            <div style="margin-top: 20px; border-top: 1px solid #ccc; padding-top: 12px;">
+                ✅ إجابات نموذجية مختصرة للموضوعي:<br>
+                <strong>الاختيار من متعدد:</strong> 1-ب, 2-ج, 3-ج, 4-ب, 5-ج, 6-ج, 7-ب, 8-ج, 9-ب, 10-ج.<br>
+                <strong>الصواب والخطأ:</strong> 1✓, 2✗, 3✓, 4✓, 5✗, 6✓, 7✓, 8✗, 9✓, 10✗.
+            </div>
+        `;
+        // تمرير سريع للنتيجة
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+</script>
+</body>
+</html>
